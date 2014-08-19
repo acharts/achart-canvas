@@ -1,0 +1,30 @@
+{
+  "name": "achart-canvas",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dxq613/achart-canvas.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "achart-raphael" : "1.0.0",
+      "achart-util" : "1.0.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1",
+      "sinon" : "1.6.0",
+      "event-simulate" : "1.0.0",
+      "jquery" : "1.9.1"
+    },
+    "tests": "tests/*.js"
+  }
+}
