@@ -172,7 +172,7 @@ Util.augment(Base,{
   fire : function(eventType,eventObj){
     var _self = this,
       events = _self.events,
-      callbacks = events[events];
+      callbacks = events[eventType];
     if(callbacks){
       Util.each(callbacks,function(m){
         m(eventObj);

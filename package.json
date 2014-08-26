@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "",
+  "homepage": "https://github.com/acharts/achart-canvas",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dxq613/achart-canvas.git"
+    "url": "https://github.com/acharts/achart-canvas.git"
   },
   "bugs": {
     "url": ""

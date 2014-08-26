@@ -33,7 +33,7 @@ describe('测试画板生成',function(){
   });
 
   it('test getPoint',function(){
-    var offset = Util.getOffset(node),
+    var offset = node.getBoundingClientRect(),
       point = canvas.getPoint(offset.left + 200,offset.top + 200);
 
     expect(point.x).to.be(200);
@@ -59,7 +59,7 @@ describe('测试画板操作',function(){
   });
 
   it('test getPoint',function(){
-    var offset = Util.getOffset(node),
+    var offset = node.getBoundingClientRect(),
       point = canvas.getPoint(offset.left + 200,offset.top + 200);
 
     expect(point.x).to.be(400);
@@ -295,7 +295,7 @@ describe('测试生成图形',function(){
     expect(canvas.find('p1')).to.be(null);
   });
   
- /**/ it('清除所有',function(done){
+  it('清除所有',function(done){
     setTimeout(function(){
       canvas.clear();
       expect(canvas.get('children').length).to.be(0);
@@ -304,6 +304,8 @@ describe('测试生成图形',function(){
     
   });
 });
+
+
 
 /**/
 
@@ -385,6 +387,10 @@ describe('测试maker',function(){
 
   });
 
+  it('animate marker',function(){
+
+  });
+
   it('测试图片',function(){
     var image = canvas.addShape('marker',{
       x : 400,
@@ -394,6 +400,10 @@ describe('测试maker',function(){
     });
 
     expect(image.get('el').type).to.be('image');
+
+  });
+
+  it('animate image',function(){
 
   });
   it('测试自定义path',function(){
@@ -494,6 +504,7 @@ describe('测试分组',function(){
     expect(circle.get('el')).not.to.be(undefined);
     expect(circle.get('node')).not.to.be(undefined);
     expect($.contains(group.get('node'),circle.get('node'))).to.be(true);
+    expect(group.containsElement(circle.get('node'))).to.be(true);
   });
 
   it('查找图形',function(){
@@ -637,6 +648,30 @@ describe('测试分组',function(){
     
   });
 
+
+
+  it('getFirst',function(){
+    var first = group.getFirst();
+    expect(first).to.be(group.get('children')[0]);
+  });
+
+  it('getLast',function(){
+    var last = group.getLast(),
+      count = group.getCount();
+    expect(last).to.be(group.get('children')[count-1]);
+  });
+
+  it('getChildAt',function(){
+    var last = group.getLast(),
+      count = group.getCount();
+    expect(group.getChildAt(count -1)).to.be(last);
+  });
+
+  it('findByNode',function(){
+    var last = group.getLast();
+    expect(group.findByNode(last.get('node'))).to.be(last);
+  });
+
   it('查找图形',function(){
     expect(canvas.find('c1')).not.to.be(null);
     expect(group.find('c1')).not.to.be(null);
@@ -654,8 +689,179 @@ describe('测试分组',function(){
   });
   
 
+  describe('group position',function(){
+    var group1 ;
+
+    it('init x,y',function(done){
+      group1 = canvas.addGroup({
+        x : 100,
+        y : 50
+      });
+      setTimeout(function(){
+        expect(group1.get('x')).to.be(100);
+        expect(group1.get('y')).to.be(50);
+        done();
+      },500);
+      
+    });
+
+    it('translate',function(done){
+      group1.translate(100,50);
+      setTimeout(function(){
+
+        expect(group1.get('x')).to.be(200);
+        expect(group1.get('y')).to.be(100);
+        done();
+      },500);
+    });
+
+    it('move',function(done){
+      group1.move(50,50);
+      setTimeout(function(){
+
+        expect(group1.get('x')).to.be(50);
+        expect(group1.get('y')).to.be(50);
+        done();
+      },500);
+    });
+
+    it('getBBox',function(){
+      group1.addShape('rect',{
+        stroke : 'red',
+        x : 50,
+        y : 50,
+        width : 50,
+        height : 50
+      });
+
+      var box = group1.getBBox();
+      expect(box.x).to.be(50);
+      expect(box.y).to.be(50);
+      expect(box.width).to.be(100);
+      expect(box.height).to.be(100);
+
+    });
+    
+  });
+
 });
   
+describe('other',function(){
+  var group;
+  it('getCfg',function(){
+
+    var cfg = {id : 't1',type : 'circle',attrs : {
+      cx : 100,
+      cy : 100,
+      r : 100
+    }};
+
+    group = canvas.addGroup({
+      elCls : 'test'
+    });
+
+    var c1 =  group.addShape(cfg);
+    
+    expect(c1.getCfgAttr('id')).to.be('t1');
+    expect(c1.getCfgAttr('type')).to.be('circle');
+  });
+
+  it('elCls',function(){
+    expect(group.get('elCls')).to.be('test');
+    expect(group.get('node').getAttribute('class')).to.be('test');
+  });
+
+  it('visible',function(){
+    var r1 = group.addShape({
+      type :'rect',
+      attrs : {
+          x : 200,
+          y : 100,
+          width : 20,
+          height : 20,
+          stroke : 'blue'
+      },
+      visible : false
+    });
+
+    expect(r1.get('visible')).to.be(false);
+
+    r1.show();
+    expect(r1.get('visible')).to.be(true);
+    r1.hide();
+
+    expect(r1.get('visible')).to.be(false);
+    
+  });
+
+  it('zindex',function(){
+    group.clear();
+
+    group.addShape({
+      type :'rect',
+      attrs : {
+          x : 190,
+          y : 90,
+          width : 20,
+          height : 20,
+          stroke : 'yellow'
+      }
+    });
+
+    group.addShape({
+      type :'rect',
+      zIndex : 1,
+      attrs : {
+          x : 200,
+          y : 100,
+          width : 20,
+          height : 20,
+          stroke : 'blue'
+      }
+    });
+
+    group.addShape({
+      type :'rect',
+      zIndex : 2,
+      attrs : {
+          x : 210,
+          y : 110,
+          width : 20,
+          height : 20,
+          stroke : 'red'
+      }
+    });
+
+    expect(group.getFirst().get('zIndex')).to.be(undefined);
+    expect(group.getLast().get('zIndex')).to.be(2);
+  });
+
+  it('change zIndex',function(){
+    var first = group.getFirst();
+    first.set('zIndex',5);
+    expect(group.getFirst()).to.be(first);
+  });
+
+  /*it('sort',function(){
+    group.sort();
+    var first = group.getFirst();
+    expect(first.get('zIndex')).to.be(1);
+  });
+  */
+  it('indexOf',function(){
+    var last = group.getLast();
+    expect(last.index()).to.be(group.getCount() - 1);
+  });
+
+  it('tofront',function(){
+
+  });
+
+  it('toback',function(){
+
+  });
+});
+
 
 
 describe('测试事件',function(){
@@ -678,17 +884,17 @@ describe('测试事件',function(){
 
       circle.on('click', function(){
         callback();
-        window.console && console.log('circle click');
+        window.console && window.console.log('circle click');
 
       });
       circle.on('mouseover',function(ev){
         circle.attr('stroke','red');
-        window.console &&console.log('over');
+        window.console &&window.console.log('over');
       });
 
       circle.on('mouseout',function(ev){
         circle.attr('stroke','black');
-        window.console &&console.log('out');
+        window.console &&window.console.log('out');
       });
 
       simulate.simulate(circle.get('node'),'click');
@@ -719,6 +925,7 @@ describe('测试事件',function(){
       }, 200);
 
     });
+
  /**/
   });
 
@@ -764,6 +971,13 @@ describe('测试事件',function(){
         expect(callback.called).not.to.be(true);
         done();
       });
+    });
+
+    it('custom event',function(){
+      var callback = sinon.spy();
+      group.on('custom',callback);
+      group.fire('custom');
+      expect(callback.called).to.be(true);
     });
     
   });
