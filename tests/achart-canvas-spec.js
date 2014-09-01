@@ -842,12 +842,17 @@ describe('other',function(){
     expect(group.getFirst()).to.be(first);
   });
 
-  /*it('sort',function(){
+  it('sort',function(done){
     group.sort();
-    var first = group.getFirst();
-    expect(first.get('zIndex')).to.be(1);
+
+    setTimeout(function(){
+      if(Util.svg){
+        var first = group.get('node').childNodes[0];
+        expect(first.shape.get('zIndex')).to.be(1);
+      }
+      done();
+    },500);
   });
-  */
   it('indexOf',function(){
     var last = group.getLast();
     expect(last.index()).to.be(group.getCount() - 1);

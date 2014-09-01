@@ -64,6 +64,10 @@ Util.augment(Base,{
    * @protected
    */
   set : function(name,value){
+    var m = '_onRender' + Util.ucfirst(name);
+    if(this[m]){
+      this[m](value,this._attrs[name]);
+    }
     this._attrs[name] = value;
   },
   /**
@@ -202,6 +206,32 @@ Util.augment(Base,{
     }
     return _self;
   },
+  //渲染应用的 class
+  _onRenderElCls : function(cls,pre){
+    var _self = this,
+      node = _self.get('node'),
+      oldCls = node.getAttribute('class'),
+      arr = oldCls ? oldCls.split(' ') : [];
+
+    if(pre){
+      Util.remove(arr,pre);
+    }
+    if(cls){
+      arr.push(cls);              
+    }
+    node.setAttribute('class',arr.join(' ')); 
+  },
+  //设置zIndex
+  _onRenderZIndex : function(zIndex){
+    var _self = this,
+      node = _self.get('node');
+    if(zIndex != null){
+        node.setAttribute('zIndex',zIndex);
+        if(Util.vml){
+            node.style.zIndex = zIndex;
+        }
+    }
+  },
   /**
    * @protected
    * 渲染控件
@@ -214,8 +244,9 @@ Util.augment(Base,{
    */
   render : function(){
     var _self = this,
-      cls = _self.get('elCls'),
+      //cls = _self.get('elCls'),
       zIndex = _self.get('zIndex'),
+      attrs = _self._attrs,
       node;
 
     if(!_self.get('rendered')){
@@ -223,27 +254,19 @@ Util.augment(Base,{
 
       _self.renderUI();
       _self.set('rendered',true);
-          node = _self.get('node');
-          if(this.get('visible') == false){
-              this.hide();
-          }
-          if(cls){
-              var oldCls = node.getAttribute('class');
-                  
-              if(oldCls){
-                 node.setAttribute('class',oldCls + ' ' + cls); 
-              }else{
-                 node.setAttribute('class',cls); 
-              }
-              
-          }
-          if(zIndex != null){
-              node.setAttribute('zIndex',zIndex);
-              if(Util.vml){
-                  node.style.zIndex = zIndex;
-              }
-          }
-          _self.bindUI();
+      node = _self.get('node');
+      if(this.get('visible') == false){
+          this.hide();
+      }
+
+      Util.each(attrs,function(v,k){
+        var m = _self['_onRender' + Util.ucfirst(k)];
+        if(m){
+          m.call(_self,v);
+        }
+      });
+     
+      _self.bindUI();
     }
   },
 
