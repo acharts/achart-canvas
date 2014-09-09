@@ -21,6 +21,9 @@ Util.augment(Item,{
     this.get('el').toFront();
     return this;
   },
+  /**
+   * 最底层
+   */
   toBack : function(){
     this.get('el').toBack();
     return this;

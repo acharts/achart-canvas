@@ -18,16 +18,12 @@ Group.ATTRS = {
    * 沿x轴的偏移量
    * @type {Number}
    */
-  x : {
-
-  },
+  x : null,
   /**
    * 沿y轴的偏移量
    * @type {Number}
    */
-  y : {
-
-  }
+  y : null
 };
 
 Util.extend(Group,Container);
