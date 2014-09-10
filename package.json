@@ -1,8 +1,8 @@
 {
   "name": "achart-canvas",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "canvas for achart",
+  "keywords": ["achart","achart-canvas"],
   "homepage": "https://github.com/acharts/achart-canvas",
   "author": "",
   "repository": {

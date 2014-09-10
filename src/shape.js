@@ -432,7 +432,7 @@ PolyLine.ATTRS = {
    *  
    * @type {Array|String}
    */
-  points : {}
+  points : []
 };
 
 Util.extend(PolyLine,Path);
@@ -477,7 +477,7 @@ Polygon.ATTRS = {
    *  
    * @type {Array|String}
    */
-  points : {}
+  points : []
 };
 
 Util.extend(Polygon,Path);
@@ -753,7 +753,7 @@ Util.augment(Marker,{
     var _self = this,
       symbol = attrs.symbol,
       radius = attrs.radius || 5;
-    if(symbol && symbol.indexOf('url') != -1){ //图片
+    if(symbol && !Util.isFunction(symbol) && symbol.indexOf('url') != -1){ //图片
       attrs.type = 'image';
       attrs.src = symbol.replace(/url\((.*)\)/,'$1');
       attrs.width = attrs.radius * 2;
@@ -776,7 +776,14 @@ Util.augment(Marker,{
     if(!attrs.symbol && attrs.path){
       return  Util.substitute(attrs.path,attrs);
     }
-    var method = Marker.Symbols[attrs.symbol];
+    var method;
+
+    if(Util.isFunction(attrs.symbol)){
+      method = attrs.symbol;
+    }else{
+      method = Marker.Symbols[attrs.symbol];
+    }
+    
     if(method){
       return method(attrs.x,attrs.y,attrs.radius)
     }else{

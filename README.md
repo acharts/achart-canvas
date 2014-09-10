@@ -4,6 +4,10 @@
 
 图表的基础库，封装了raphael.js，用于增删改查图形，增加了分组概念。
 
+ * [wiki 文档](wiki/)
+ * [demo 示例](examples/)
+
+
 ---
 
 ## Install
@@ -149,6 +153,8 @@ canvas.addShape({
 
     #### Shape(基类)
 
+    下面的配置项不同于图形控件的属性，而是作为图形绘制时的属性使用，所以称之为`绘制属性`
+
     * arrow-end : 类型: classic, block, open, oval, diamond, none, width: wide, narrow, midium, length: long, short, midium.
     * cursor ： 鼠标形状
     * fill ： 填充颜色
@@ -209,6 +215,26 @@ canvas.addShape({
       * y1 起点x坐标
       * x2 结束点x坐标
       * y2 结束点x坐标
+
+    #### polyLine
+
+      * points 多点线段的连接点
+
+    #### polygon
+
+      * points 多边形的顶点
+
+    #### marker
+
+      自定义标记，用于一些简单的图标
+
+      * radius 半径
+      * x 中心点x坐标
+      * y 中心点y坐标
+      * symbol 标记的类型，目前支持： circle、square、diamond、triangle、triangle-down几种类型，除此之外
+
+        1. 如果symbol 是个图片url 则表示是一个图片
+        2. symbol是个函数则根据函数生成标记
 
     #### text
 
@@ -282,5 +308,5 @@ canvas.addShape({
 
 ## links
 
-  * [demo 示例](examples)
-  * [wiki 文档](wiki)
+  * [demo 示例](examples/)
+  * [wiki 文档](wiki/)
