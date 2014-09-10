@@ -120,7 +120,7 @@ seajs.use('index', function(Canvas) {
 
   下面是一个自定义事件的示例：
 
-  ````html
+````html
 
 <div id="c3"></div>
 

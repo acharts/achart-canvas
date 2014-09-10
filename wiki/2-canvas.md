@@ -214,7 +214,7 @@ seajs.use(['index'], function(Canvas,$) {
 
 ### 画布的内容
 
-![画布构成](canvas.jpg)
+![画布构成](http://gtms01.alicdn.com/tps/i1/TB1UuDIFVXXXXcAXVXXHI3LQpXX-300-156.jpg)
 
  * 画布内部包含[分组（Group)](3-group.md)和[图形（Shape）](4-shape.md)
  * 分组也可以嵌套分组于图形
