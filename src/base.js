@@ -23,10 +23,10 @@ var Base = function(cfg){
 };
 
 Base.ATTRS = {
-      /**
-       * 所在父元素中的优先级，仅在父元素排序时有效
-       * @type {Number}
-       */
+  /**
+   * 所在父元素中的优先级，仅在父元素排序时有效
+   * @type {Number}
+   */
   zIndex : null,
   /**
    * @protected
@@ -48,6 +48,17 @@ Base.ATTRS = {
    * @type {Boolean}
    */
   visible : true  
+
+  /**
+   * @event hide
+   * 隐藏
+   */
+  
+  /**
+   * @event 显示
+   * 显示
+   */
+  
 };
 
 Util.augment(Base,{
@@ -90,15 +101,21 @@ Util.augment(Base,{
    * 显示
    */
   show : function(){
-      this.get('el').show();
-      this.set('visible',true);
+    this.get('el').show();
+    this.set('visible',true);
+    if(!this.get('visible')){
+      this.fire('show');
+    }
   },
   /**
    * 隐藏
    */
   hide : function(){
-      this.get('el').hide();
-      this.set('visible',false);
+    this.get('el').hide();
+    this.set('visible',false);
+    if(this.get('visible')){
+      this.fire('hide');
+    }
   },  
   /**
    * 设置或者设置属性，有一下3中情形：
@@ -250,8 +267,9 @@ Util.augment(Base,{
       node;
 
     if(!_self.get('rendered')){
-          _self.beforeRenderUI();
-
+      
+      _self.createDom();
+      _self.beforeRenderUI();
       _self.renderUI();
       _self.set('rendered',true);
       node = _self.get('node');
@@ -268,6 +286,14 @@ Util.augment(Base,{
      
       _self.bindUI();
     }
+  },
+
+  /**
+   * @protected
+   * 创建dom
+   */
+  createDom : function(){
+
   },
 
   /**

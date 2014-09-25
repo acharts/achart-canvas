@@ -29,7 +29,7 @@ Util.augment(Shape,{
   isShape : true,
   
   //渲染shape
-  renderUI : function(){
+  createDom : function(){
 
     var _self = this,
       el = _self.get('el'),

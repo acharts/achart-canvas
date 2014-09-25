@@ -68,10 +68,16 @@ seajs.use('index', function(Canvas) {
   });
 
   //path
-  canvas.addShape('path',{
+  var path = canvas.addShape('path',{
     path : 'M250,225L250,70M250,225L359.60155108391484,115.39844891608514M250,225L405,225M250,225L359.60155108391484,334.60155108391484M250,225L250.00000000000003,380M250,225L140.39844891608516,334.60155108391484M250,225L95,225.00000000000003M250,225L140.39844891608513,115.39844891608516',
-    stroke : '#c0c0c0'
+    stroke : '#c0c0c0',
+    'clip-rect' : '0,0,100,100'
   });
+  
+  path.animate({
+    'clip-rect' : '0,0,500,500'
+  },1000)
+
   //图片
   canvas.addShape('image',{
     x : 0,
@@ -101,8 +107,13 @@ seajs.use('index', function(Canvas) {
   });
 
   var group = canvas.addGroup({
-    elCls : 'group12'
+    elCls : 'group12',
+    attrs : {
+      'clip-rect' :'0,0,100,100'
+    }
   });
+  
+
 
   canvas.addGroup({
     id : 'my-group',
@@ -118,9 +129,12 @@ seajs.use('index', function(Canvas) {
     stroke : ''
   });
 
+  group.attr('clip-rect','');
+
   group.animate({ //分组的动画仅支持平移
     x : 300,
     y : 200
+
   },1000);
 
   //通过id查找分组

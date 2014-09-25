@@ -37,21 +37,25 @@ Util.augment(Group,{
    * @type {Boolean}
    */
   isGroup : true,
-
-  renderUI : function(){
+  //创建DOM 
+  createDom : function(){
     var _self = this,
       el = _self.get('el'),
       attrs = _self.get('attrs'),
       node;
     if(!el){
-      el = _self.createElement(attrs);
+      el = _self.createElement();
+      attrs && el.attr(attrs);
       _self.set('el',el);
     }
 
     node = el.node;
     node.group = _self;
     _self.set('node',node);
-    _self._initTranslate();
+  },
+  //渲染
+  renderUI : function(){
+    this._initTranslate();
   },
   //初始化平移
   _initTranslate: function(){
@@ -122,7 +126,7 @@ Util.augment(Group,{
     return node == element || Util.contains(node,element);
   },
   /**
-   * 执行动画,对于分组来说，animate仅支持平移动画
+   * 执行动画,对于分组来说，animate仅支持平移动画和clip-rect
    *
    * <code>
    *   group.animate({
@@ -139,10 +143,17 @@ Util.augment(Group,{
   animate : function(params,ms,easing,callback){
     var _self = this,
       el = _self.get('el');
+    
+
     if(Util.svg){
-      el.animate({
-        transform : 't '+ params.x + ' ' + params.y
-      },ms,easing,callback);
+      var cfg = {};
+      if(params.x != undefined){
+        cfg.transform = 't '+ params.x + ' ' + params.y;
+      }
+      if(params['clip-rect']){
+        cfg['clip-rect'] = params['clip-rect'];
+      }
+      el.animate(cfg,ms,easing,callback);
     }else{
       el.animate(params,ms,easing,callback);
     }
