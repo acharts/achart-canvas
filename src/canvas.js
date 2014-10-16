@@ -8,6 +8,10 @@ var
 /**
  * @class Chart.Canvas
  * 图形的画板，支持SVG和VML
+ *
+ *  - <a href="http://spmjs.io/docs/achart-canvas/" target="_blank">文档</a>
+ *  - <a href="http://spmjs.io/docs/achart-canvas/wiki/" target="_blank">wiki</a>
+ * 
  * @extends Chart.Canvas.Container
  */
 var Canvas = function(cfg){
