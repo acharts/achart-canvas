@@ -55,7 +55,7 @@ Base.ATTRS = {
    */
   
   /**
-   * @event 显示
+   * @event show 显示
    * 显示
    */
   
