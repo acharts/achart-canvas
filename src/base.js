@@ -1,7 +1,7 @@
   
 var 
  
-  Util = require('achart-util');
+  Util = require('./util');
 
 /**
  * @class Chart.Canvas.Base
