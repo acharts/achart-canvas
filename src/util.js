@@ -10,60 +10,6 @@ var Raphael = require('achart-raphael'),
   objectPrototype = Object.prototype,
   toString = objectPrototype.toString;
   
-
-
-//取小于当前值的
-function floor(values,value){
-  var length = values.length,
-    pre = values[0];
-  if(value < values[0]){
-    return NAN;
-  }
-  if(value >= values[length - 1]){
-    return values[length - 1];
-  }
-  for (var i = 1; i < values.length; i++) {
-    if(value < values[i]){
-      break;
-    }
-    pre = values[i];
-  }
-
-  return pre;
-}
-//大于当前值的第一个
-function ceiling(values,value){
-  var length = values.length,
-    pre = values[0],
-    rst;
-  if(value > values[length - 1]){
-    return NAN;
-  }
-  if(value < values[0]){
-    return values[0];
-  }
-
-  for (var i = 1; i < values.length; i++) {
-    if(value <= values[i]){
-      rst = values[i];
-      break;
-    }
-    pre = values[i];
-  }
-
-  return rst;
-}
-
-//将数值逼近到指定的数
-function tryFixed(v,base){
-  var str = base.toString(),
-    index = str.indexOf('.');
-  if(index == -1){
-    return parseInt(v);
-  }
-  var length = str.substr(index + 1).length;
-  return parseFloat(v.toFixed(length));
-}
 //分步动画
 function animTime(duration,fn,callback){
     var baseTime = new Date().getTime(),
@@ -415,62 +361,7 @@ Util.mix(Util,{
   transformPath : function(path,transform){
     return Raphael.transformPath(path,transform);
   },
-  /**
-   * 获取逼近的值，用于对齐数据
-   * @param  {Array} values   数据集合
-   * @param  {Number} value   数值
-   * @param  {Number} [tolerance=10] 逼近范围
-   * @return {Number} 逼近的值
-   */
-  snapTo : function(values, value, tolerance){
-    if(tolerance){
-      return Raphael.snapTo(values, value, tolerance);
-    }
-    var floorVal = floor(values,value),
-      ceilingVal = ceiling(values,value);
-    if(isNaN(floorVal) || isNaN(ceilingVal)){
-      if(values[0] >= value){
-        return values[0];
-      }
-      var last = values[values.length -1];
-      if(last <= value){
-        return last;
-      }
-    }
-    
-
-    if(Math.abs(value - floorVal) < Math.abs(ceilingVal - value)){
-      return floorVal;
-    }
-    return ceilingVal;
-  },
-  /**
-   * 获取逼近的最小值，用于对齐数据
-   * @param  {Array} values   数据集合
-   * @param  {Number} value   数值
-   * @return {Number} 逼近的最小值
-   */
-  snapFloor : function(values,value){
-    return floor(values,value);
-  },
-  /**
-   * 获取逼近的最大值，用于对齐数据
-   * @param  {Array} values   数据集合
-   * @param  {Number} value   数值
-   * @return {Number} 逼近的最大值
-   */
-  snapCeiling : function(values,value){
-    return ceiling(values,value);
-  },
-  /**
-   * 将数字保留对应数字的小数位
-   * @param  {Number} value 值
-   * @param  {Number} base  基准值
-   * @return {Number}  fixed后的数字
-   */
-  tryFixed : function(value,base){
-    return tryFixed(value,base);
-  },
+  
   /**
    * 设置值，仅当对象上没有此属性时
    * @param  {Object} obj 对象
