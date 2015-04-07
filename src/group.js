@@ -8,6 +8,9 @@ var Container = require('./container'),
 /**
  * @class Chart.Canvas.Group
  * 图形分组
+ *  - <a href="http://spmjs.io/docs/achart-canvas/wiki/3-group.html" target="_blank">wiki</a>
+ * @extends Chart.Canvas.Container
+ * @mixins Chart.Canvas.CanvasItem
  */
 var Group = function(cfg){
   Group.superclass.constructor.call(this,cfg);
@@ -152,6 +155,15 @@ Util.augment(Group,{
       }
       if(params['clip-rect']){
         cfg['clip-rect'] = params['clip-rect'];
+      }
+      if(params['clip-circle']){
+        cfg['clip-circle'] = params['clip-circle'];
+      }
+      if(params['clip-angle']){
+        cfg['clip-angle'] = params['clip-angle'];
+      }
+      if(params['transform']){
+        cfg['transform'] = params['transform'];
       }
       el.animate(cfg,ms,easing,callback);
     }else{

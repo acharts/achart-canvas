@@ -6,7 +6,9 @@ var Base = require('./base'),
 /**
  * @class Chart.Canvas.Shape
  * 图形的基类
+ *  - <a href="http://spmjs.io/docs/achart-canvas/wiki/4-shape.html" target="_blank">wiki</a>
  * @extends Chart.Canvas.Base
+ * @mixins Chart.Canvas.CanvasItem
  */
 var Shape = function(cfg){
   Shape.superclass.constructor.call(this,cfg);
@@ -202,17 +204,17 @@ Circle.ATTRS = {
    * 圆心的x坐标
    * @type {Number}
    */
-  cx : {},
+  cx : null,
   /**
    * 圆心的y坐标
    * @type {Number}
    */
-  cy : {},
+  cy : null,
   /**
    * 圆的半径
    * @type {Number}
    */
-  r : {}
+  r : null
 };
 
 Util.extend(Circle,Shape);
@@ -233,22 +235,22 @@ Rect.ATTRS = {
    * 矩形的左定点x坐标
    * @type {Number}
    */
-  x : {},
+  x : null,
   /**
    * 矩形的左定点y坐标
    * @type {Number}
    */
-  y : {},
+  y : null,
   /**
    * 矩形的宽度
    * @type {Number}
    */
-  width : {},
+  width : null,
   /**
    * 矩形的高度
    * @type {Number}
    */
-  height : {},
+  height : null,
   /**
    * 圆角
    * @type {Number}
@@ -275,22 +277,22 @@ Ellipse.ATTRS = {
    * 矩形的左定点x坐标
    * @type {Number}
    */
-  cx : {},
+  cx : null,
   /**
    * 矩形的左定点y坐标
    * @type {Number}
    */
-  cy : {},
+  cy : null,
   /**
    * 矩形的宽度
    * @type {Number}
    */
-  rx : {},
+  rx : null,
   /**
    * 矩形的高度
    * @type {Number}
    */
-  ry : {}
+  ry : null
 };
 
 Util.extend(Ellipse,Shape);
@@ -310,7 +312,7 @@ Path.ATTRS = {
    * 路径
    * @type {String}
    */
-  path : {}
+  path : null
 };
 
 
@@ -332,22 +334,22 @@ Line.ATTRS = {
    * 起始x坐标
    * @type {Number}
    */
-  x1 : {},
+  x1 : null,
   /**
    * 起始y坐标
    * @type {Number}
    */
-  y1 : {},
+  y1 : null,
   /**
    * 终止x坐标
    * @type {Number}
    */
-  x2 : {},
+  x2 : null,
   /**
    * 终止y坐标
    * @type {Number}
    */
-  y2 : {}
+  y2 : null
 };
 
 Util.extend(Line,Path);
@@ -518,27 +520,27 @@ Text.ATTRS = {
    * x轴坐标
    * @type {Number}
    */
-  x : {},
+  x : null,
   /**
    * y轴坐标
    * @type {Number}
    */
-  y : {},
+  y : null,
   /**
    * 显示的文本
    * @type {String}
    */
-  text : {},
+  text : null,
   /**
    * 字体相关的属性，也可以单独设置其中的属性: font-family,font-weight....
    * @type {String}
    */
-  'font' : {},
+  'font' : null,
   /**
    * 文本的对齐方式：默认对齐方式: 'middle'
    * @type {String}
    */
-  'text-anchor' : {}
+  'text-anchor' : null
 };
 
 Util.extend(Text,Shape);
@@ -561,7 +563,7 @@ Label.ATTRS = {
    * 旋转角度
    * @type {Number}
    */
-  rotate : {}
+  rotate : null
 };
 
 Util.augment(Label,{
@@ -616,16 +618,12 @@ Marker.ATTRS = {
    * 起始x轴位置
    * @type {Number}
    */
-  x : {
-
-  },
+  x : null,
   /**
    * 起始y轴位置
    * @type {Number}
    */
-  y : {
-
-  }
+  y : null
 };
 
 Marker.Symbols = {
@@ -811,27 +809,27 @@ Image.ATTRS = {
    * 路径
    * @type {String}
    */
-  src : {}, 
+  src : null, 
   /**
    * x轴位置
    * @type {Number}
    */
-  x : {}, 
+  x : null, 
   /**
    * y轴位置
    * @type {Number}
    */
-  y : {}, 
+  y : null, 
   /**
    * 宽度
    * @type {Number}
    */
-  width : {}, 
+  width : null, 
   /**
    * 高度
    * @type {Number}
    */
-  height : {}
+  height : null
 }
 
 Util.extend(Image,Shape);

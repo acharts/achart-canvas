@@ -6,6 +6,7 @@ var
 /**
  * @class Chart.Canvas.Base
  * 图形控件或者分组的基类
+ * @private
  */
 var Base = function(cfg){
   this.cfg = cfg;

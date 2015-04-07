@@ -8,6 +8,7 @@ var
  * 图形容器
  * @extends Chart.Canvas.Base
  * @abstract
+ * @private
  */
 var Container = function(cfg){
 

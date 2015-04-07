@@ -8,6 +8,7 @@ var Util = require('achart-util');
 /**
  * @class Chart.Canvas.CanvasItem
  * 画布内部元素的一些公用方法的扩展，仅作为接口使用
+ * @private
  */
 var Item = function(){
 
