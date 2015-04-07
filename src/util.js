@@ -76,16 +76,19 @@ Util.mix(Util,{
 
   /**
    * 是否是vml
+   * @member Chart.Util
    * @type {Boolean}
    */
   vml : Raphael.vml,
   /**
    * 是否是svg
+   * @member Chart.Util
    * @type {Boolean}
    */
   svg : Raphael.svg,
   /**
    * 创建DOM 节点
+   * @member Chart.Util
    * @param  {String} str Dom 字符串
    * @return {HTMLElement}  DOM 节点
    */
@@ -116,6 +119,7 @@ Util.mix(Util,{
   },
   /**
    * 是否包含指定节点
+   * @member Chart.Util
    * @param  {HTMLElement} node    节点
    * @param  {HTMLElement} subNode 子节点
    * @return {HTMLElement} 是否包含在节点中
@@ -138,6 +142,7 @@ Util.mix(Util,{
   },
   /**
    * 获取宽度
+   * @member Chart.Util
    * @param  {HTMLElement} el  dom节点
    * @return {Number} 宽度
    */
@@ -150,6 +155,7 @@ Util.mix(Util,{
   },
    /**
    * 获取高度
+   * @member Chart.Util
    * @param  {HTMLElement} el  dom节点
    * @return {Number} 高度
    */
@@ -162,6 +168,7 @@ Util.mix(Util,{
   },
   /**
    * 获取外层宽度
+   * @member Chart.Util
    * @param  {HTMLElement} el  dom节点
    * @return {Number} 宽度
    */
@@ -176,6 +183,7 @@ Util.mix(Util,{
   },
   /**
    * 获取外城高度
+   * @member Chart.Util
    * @param  {HTMLElement} el  dom节点
    * @return {Number} 高度
    */
@@ -190,6 +198,7 @@ Util.mix(Util,{
   },
   /**
    * 获取样式
+   * @member Chart.Util
    * @param  {HTMLElement} el  dom节点
    * @param  {String} name 样式名
    * @return {String} 属性值
@@ -202,6 +211,7 @@ Util.mix(Util,{
   },
   /**
    * 添加事件
+   * @member Chart.Util
    * @param {HTMLElement}   node  节点
    * @param {String}   type 事件名称
    * @param {Function} fn   回调函数
@@ -219,6 +229,7 @@ Util.mix(Util,{
   },
   /**
    * 移除事件
+   * @member Chart.Util
    * @param {HTMLElement}   node  节点
    * @param {String}   type 事件名称
    * @param {Function} fn   回调函数
@@ -235,6 +246,7 @@ Util.mix(Util,{
   },
   /**
    * 分步执行动画
+   * @member Chart.Util
    * @param  {Number}   duration 执行时间
    * @param  {Function} fn  每一步执行的回调函数，function(step,total){}
    * @param  {Function} callback 回调函数
@@ -245,6 +257,7 @@ Util.mix(Util,{
   },
   /**
    * 终止分步执行的动画
+   * @member Chart.Util
    * @param  {String} handler 句柄
    */
   stopStep : function(handler){
@@ -252,6 +265,7 @@ Util.mix(Util,{
   },
   /**
    * path执行动画
+   * @member Chart.Util
    * @param  {Chart.Canvas.Shape.Path}   pathShape path图形
    * @param  {String|Array}   toPath  变换的path
    * @param  {Number}   reserve   附加几个节点
@@ -300,6 +314,7 @@ Util.mix(Util,{
   },
   /**
    * 获取path上的点
+   * @member Chart.Util
    * @param  {String} path 路径
    * @param  {Number} length 长度
    * @return {Object}  {x: x-axis ,y: y-axis}
@@ -309,6 +324,7 @@ Util.mix(Util,{
   },
   /**
    * 节点是否在指定的Path中
+   * @member Chart.Util
    * @param  {String} path 路径
    * @param {Number} x x坐标
    * @param {Number} y y坐标
@@ -319,6 +335,7 @@ Util.mix(Util,{
   },
   /**
    * 获取子path
+   * @member Chart.Util
    * @param  {String} path 路径字符串
    * @param  {Number} from 开始的节点
    * @param  {Number} to   结束的节点
@@ -329,6 +346,7 @@ Util.mix(Util,{
   },
   /**
    * 将path字符串转换成数组
+   * @member Chart.Util
    * @param  {String} str 字符串
    * @return {Array}  数组
    */
@@ -338,6 +356,7 @@ Util.mix(Util,{
 
   /**
    * 将path数组转换成字符串
+   * @member Chart.Util
    * @param  {Array} array 数组
    * @return {String}  字符串
    */
@@ -354,6 +373,7 @@ Util.mix(Util,{
 
   /**
    * 平移path
+   * @member Chart.Util
    * @param  {String} path 路径
    * @param  {Array|String|Object} transform 平移路径
    * @return {Array} path数组
@@ -364,6 +384,7 @@ Util.mix(Util,{
   
   /**
    * 设置值，仅当对象上没有此属性时
+   * @member Chart.Util
    * @param  {Object} obj 对象
    * @param  {String} name  字段名
    * @param  {*} value 值
@@ -376,6 +397,7 @@ Util.mix(Util,{
   },
   /**
    * 将颜色变亮
+   * @member Chart.Util
    * @param  {String} c  颜色
    * @param  {Number} percent 变亮的比例 0 - 1
    * @return {String} 变亮的颜色
@@ -387,6 +409,7 @@ Util.mix(Util,{
   },
   /**
    * 将颜色变暗
+   * @member Chart.Util
    * @param  {String} c  颜色
    * @param  {Number} percent 变暗的比例 0 - 1
    * @return {String} 变暗的颜色
