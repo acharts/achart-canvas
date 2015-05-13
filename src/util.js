@@ -288,8 +288,12 @@ Util.mix(Util,{
       return;
     }
 
-    var curPath = pathShape.getPath(),
-      endPath = Util.parsePathString(toPath),
+    var curPath = pathShape.getPath();
+    if(!curPath){
+      after();
+      return;
+    }
+    var endPath = Util.parsePathString(toPath),
       tempPath,
       last = curPath.slice(reserve * -1);
 
