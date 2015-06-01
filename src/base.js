@@ -103,21 +103,21 @@ Util.augment(Base,{
    */
   show : function(){
     this.get('el').show();
-    this.set('visible',true);
     if(!this.get('visible')){
       this.fire('show');
     }
+    this.set('visible',true);
   },
   /**
    * 隐藏
    */
   hide : function(){
     this.get('el').hide();
-    this.set('visible',false);
     if(this.get('visible')){
       this.fire('hide');
     }
-  },  
+    this.set('visible',false);
+  },
   /**
    * 设置或者设置属性，有一下3中情形：
    *
