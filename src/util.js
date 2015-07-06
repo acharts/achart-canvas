@@ -409,6 +409,9 @@ Util.mix(Util,{
   highlight : function(c,percent){
     var color = Raphael.color(c),
       l = color.l * (1 + percent);
+    if( l >= 1) {
+      l = 1;
+    }
     return Raphael.hsl2rgb(color.h,color.s,l).hex;
   },
   /**

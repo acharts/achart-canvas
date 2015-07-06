@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/container.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">src/container.js</span></h1>
+    <h2>
+        Statements: <span class="metric">90.48% <small>(76 / 84)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">70% <small>(28 / 40)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">92% <small>(23 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">90.48% <small>(76 / 84)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">src/</a> &#187; container.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">139</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-yes">152</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">159</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">159</span>
+<span class="cline-any cline-yes">159</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">727</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38</span>
+<span class="cline-any cline-yes">728</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">711</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var 
+	Shape = require('./shape'),
+	Base = require('./base'),
+	Util = require('achart-util');
+&nbsp;
+/**
+ * @class Chart.Canvas.Container
+ * 图形容器
+ * @extends Chart.Canvas.Base
+ * @abstract
+ * @private
+ */
+var Container = function(cfg){
+&nbsp;
+	Container.superclass.constructor.call(this,cfg);
+};
+&nbsp;
+Util.extend(Container,Base);
+&nbsp;
+Container.ATTRS = {
+	/**
+	 * 子节点
+	 * @type {Array}
+	 */
+	children : []
+}
+&nbsp;
+Util.augment(Container,{
+&nbsp;
+	isContainer : true,
+	beforeRenderUI : function(){
+		this.set('children',[]);
+	},
+	/**
+	 * @protected
+	 * @ignore
+	 */
+	getGroupClass : <span class="fstat-no" title="function not covered" >function(){</span>
+&nbsp;
+	},
+	/**
+	 * @protected
+	 * @ignore
+	 */
+	getShapeClass : function(type){
+		var cName = Util.ucfirst(type);
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(Shape[cName]){
+			return Shape[cName];
+		}
+<span class="cstat-no" title="statement not covered" >		return Shape;</span>
+	},
+	/**
+	 * 添加图形
+	 * @param {String | Object} type 类型或者配置项
+	 * @param {String} attrs 属性
+	 * @return {Chart.Canvas.Shape} 图形
+	 */
+	addShape : function(type,attrs){
+		var _self = this,
+			C,
+			cfg,
+			shape;
+		if(Util.isObject(type)){
+			cfg = type;
+			type = cfg.type;
+		}else{
+			cfg = {
+				type : type,
+				attrs : attrs,
+				canvas : _self.get('canvas')
+			};
+		}
+		cfg.parent = _self;
+		C = _self.getShapeClass(type);
+		shape = new C(cfg);
+		shape.set('canvas',_self.get('canvas'));
+		_self.addChild(shape);
+		return shape;
+	},
+	/**
+	 * 添加分组
+	 * @param {Function} C 构造函数,可以为空，默认为Chart.Canvas.Group
+	 * @return {Chart.Canvas.Group} 分组
+	 */
+	addGroup : function(C,cfg){
+		if(Util.isObject(C)){
+			cfg = C;
+			C = null;
+		}
+		var _self = this,
+			cfg = Util.mix({
+				parent : _self,
+				canvas : _self.get('canvas')
+			},cfg),
+			group;
+&nbsp;
+		C = C || _self.getGroupClass();
+		group = new C(cfg);
+		_self.addChild(group);
+		return group;
+	},
+	/**
+	 * 移除子图形
+	 * @protected
+	 * @param  {*} item 子图形或者分组
+	 * @param  {Boolean} [destroy=true] 是否同时从控件移除
+	 */
+	removeChild : function(item,destroy){
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(destroy == undefined){
+<span class="cstat-no" title="statement not covered" >  		destroy = true;</span>
+  	}
+		var _self = this,
+			el = _self.get('el'),
+			children = _self.get('children');
+		Util.remove(children,item);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(el.__set &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >el.__set.exclude)</span>{
+<span class="cstat-no" title="statement not covered" >			el.__set.exclude(item.get('el'));</span>
+		}
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(destroy){
+			item.destroy();
+		}
+		return item;
+	},
+	/**
+	 * @protected
+	 * 添加图形或者分组
+	 * @param {Chart.Canvas.Base} item 图形或者分组
+	 */
+	addChild : function(item){
+		var _self = this,
+			children = _self.get('children');
+		children.push(item);
+		item.parent = item;
+	},
+	/**
+	 * 获取子控件根据索引
+	 * @param  {Number} index 索引值
+	 * @return {Chart.Canvas.Base} 图形或者分组
+	 */
+	getChildAt : function(index){
+		return this.get('children')[index];
+	},
+	/**
+	 * 获取子控件数目
+	 * @return {Number} 数目
+	 */
+	getCount : function(){
+		return this.get('children').length;
+	},
+	/**
+	 * 获取最后一个控件
+	 * @return {Chart.Canvas.Base} 图形或者分组
+	 */
+	getLast : function(){
+		return this.getChildAt(this.getCount() - 1);
+	},
+	/**
+	 * 获取第一个控件
+	 * @return {Chart.Canvas.Base} 图形或者分组
+	 */
+	getFirst : function(){
+		return this.getChildAt(0);
+	},
+	/**
+	 * 根据id查找分组或者图形
+	 * @param  {String} id id
+	 * @return {Chart.Canvas.Base} 分组或者图形
+	 */
+	find : function(id){
+		var _self = this;
+		return _self.findBy(function(item){
+			return item.get('id') == id;
+		});
+	},
+	/**
+	 * 排序，将子元素按照zIndex进行排序
+	 */
+	sort : function(){
+		var _self = this,
+			node = _self.get('node'),
+			children = Util.toArray(node.childNodes);
+		<span class="missing-if-branch" title="else path not taken" >E</span>if(Util.svg){
+			children.sort(function(obj1,obj2){
+				var zIndex1 = obj1.getAttribute('zIndex') || <span class="branch-1 cbranch-no" title="branch not covered" >0,</span>
+					zIndex2 = obj2.getAttribute('zIndex') || <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+				return (+zIndex1) - (+zIndex2);
+			});
+&nbsp;
+			Util.each(children,function(item){
+				node.appendChild(item);
+			});
+		}else{
+<span class="cstat-no" title="statement not covered" >			Util.each(children,<span class="fstat-no" title="function not covered" >function(item){</span></span>
+<span class="cstat-no" title="statement not covered" >				var zIndex = item.getAttribute('zIndex');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >				if(zIndex){</span>
+<span class="cstat-no" title="statement not covered" >					item.style.zIndex = zIndex;</span>
+				} 
+			});
+		}
+		
+	},
+	/**
+	 * 根据查找函数查找分组或者图形
+	 * @param  {Function} fn 匹配函数
+	 * @return {Chart.Canvas.Base} 分组或者图形
+	 */
+	findBy : function(fn){
+		var _self = this,
+			children = _self.get('children'),
+			rst = null;
+		Util.each(children,function(item){
+			if(fn(item)){
+				rst = item;
+				
+			}else if(item.findBy){
+				rst = item.findBy(fn);
+			}
+			if(rst){
+				return false;
+			}
+		});
+		return rst;
+	},
+	/**
+	 * 根据dom查找
+	 * @param  {HTMLElement} node 节点
+	 * @return {Chart.Canvas.Base} 返回分组或者图形
+	 */
+	findByNode : function(node){
+		return this.findBy(function(item){
+			return item.get('node') == node;
+		});
+	},
+	/**
+	 * 清除容器内的图形或者分组
+	 */
+	clear : function(){
+		var _self = this,
+			children = _self.get('children'),
+			el = _self.get('el');
+		Util.each(children,function(item){
+			item.destroy();
+		});
+		children &amp;&amp; Util.empty(children);
+		<span class="missing-if-branch" title="if path not taken" >I</span>if(el.__set &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >el.__set.clear)</span>{
+<span class="cstat-no" title="statement not covered" >			el.__set.clear();</span>
+		}
+		el.clear &amp;&amp; el.clear();
+	},
+	/**
+	 * 析构函数
+	 */
+	destroy : function(){
+  	var _self = this,
+  		children = _self.get('children'),
+  		el = _self.get('el'),
+  		node = _self.get('node');
+  	if(_self.get('destroyed')){
+  		return;
+  	}
+  	_self.clear();
+&nbsp;
+  	Container.superclass.destroy.call(this);
+&nbsp;
+  }
+&nbsp;
+});
+&nbsp;
+module.exports = Container;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 01 2015 15:41:04 GMT+0800 (CST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
